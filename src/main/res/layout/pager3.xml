@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#808080"
+    android:id="@+id/ll_view3"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="年发电量页面"
+        android:gravity="center"
+        android:id="@+id/tv_yearElect1"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/pager3_barchart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ffffff"
+        />
+
+    <!--<com.gdut.myproject.CustomUI.MyHistogramView-->
+        <!--android:id="@+id/myHistogramView1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+</LinearLayout>

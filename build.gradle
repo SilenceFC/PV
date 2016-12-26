@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.gdut.myproject.PVMonitor"
+        minSdkVersion 18
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile 'io.reactivex.rxjava2:rxjava:2.0.0-RC5'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.0-RC1'
+
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.3.0'
+    compile 'de.greenrobot:greendao:2.0.0'
+    compile files('libs/gson-2.3.1.jar')
+    compile files('libs/jsoup-1.8.3.jar')
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile project(':volly-1.0.11')
+    compile project(':xUtils-2.6.14')
+    compile project(':jpush-android-2.1.7')
+    compile files('libs/mina-core-2.0.16.jar')
+    compile files('libs/slf4j-api-1.7.21.jar')
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_view1"
+    android:background="#808080"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/tv_titlePower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="功率页面"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:clickable="true"
+        />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/pager1_linechart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="#00ffffff"
+        ></com.github.mikephil.charting.charts.LineChart>
+
+    <!--<com.gdut.myproject.CustomUI.MyChartView-->
+        <!--android:id="@+id/myChartView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+</LinearLayout>

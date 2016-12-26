@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#808080"
+    android:id="@+id/ll_fragment4"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_interver"
+            android:drawableLeft="@drawable/tab_selector_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="逆变器"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:clickable="true"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+    <include layout="@layout/view_child_inverter"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        >
+        <TextView
+            android:id="@+id/tv_mppt"
+            android:drawableLeft="@drawable/tab_selector_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="光伏控制器"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:clickable="true"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+    <include layout="@layout/view_child_mppt1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+</LinearLayout>

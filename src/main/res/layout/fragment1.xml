@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#808080"
+    android:id="@+id/ll_fragment1"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="设备状态"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="60dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:text="MPPT"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/iv_mpptstate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:background="@mipmap/main1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="60dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:text="逆变器"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/iv_pvstate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:background="@mipmap/main1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+<!-- 以上为状态栏-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/ll_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="本月发电量:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_monthData"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="xxx MWh"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ffffff" />
+            <LinearLayout
+                android:id="@+id/ll_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv5"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="年发电量:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_yearData"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="xxx MWh"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ffffff" />
+            <LinearLayout
+                android:id="@+id/ll_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv6"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="累计:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_totalData"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="xxx MWh"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ffffff" />
+            <LinearLayout
+                android:id="@+id/ll_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv7"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="装机容量:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_volume"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="15 MWh"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp" />
+            </LinearLayout>
+        </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_weather"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/weather"
+                />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/ll_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv8"
+            android:layout_width="150dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="今日发电量:"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tv_todayData"
+            android:layout_width="150dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="xxx MWh"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_updatetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv9"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="更新时间:"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tv_updatetime1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="00-00"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>
+

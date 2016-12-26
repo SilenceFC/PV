@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_mppt"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:visibility="gone"
+    >
+
+    <ImageView
+        android:id="@+id/iv_child"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:background="@mipmap/mppt"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+                <TableRow>
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输入电流："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_inI"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="XXX A"
+                        android:textSize="14sp"
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输入电压："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_inU"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="XXX V"
+                        android:textSize="14sp"
+
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输出电流："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_outI"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="XXX V"
+                        android:textSize="14sp"
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输出电压："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_outU"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="XXX V"
+                        android:textSize="14sp"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输入功率："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_inP"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="xxx KW"
+                        android:textSize="14sp"
+                        />
+
+                    />
+                </TableRow>
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="输出功率："
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_outP"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="xxX KW"
+                        android:textSize="14sp"
+                        />
+                    />
+
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TableRow
+                >
+
+                <TextView
+                    android:textColor="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="散热器温度："
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="xxX ℃"
+                    android:textSize="14sp"
+                    />
+                />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

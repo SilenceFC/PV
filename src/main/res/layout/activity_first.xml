@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+              android:clipToPadding="false"
+              android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <include layout="@layout/top"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:background="@mipmap/line_cross" />-->
+
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:background="#808080"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/bt_main"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_selector_main"
+            android:gravity="bottom|center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="16sp"
+            android:text="概述"
+            android:textColor="@drawable/tab_selector_color" />
+
+        <RadioButton
+            android:id="@+id/bt_weather"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_selector_weather"
+            android:gravity="bottom|center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="16sp"
+            android:text="天气"
+            android:textColor="@drawable/tab_selector_color" />
+
+        <RadioButton
+            android:id="@+id/bt_chart"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_selector_chart"
+            android:gravity="bottom|center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="16sp"
+            android:text="发电量"
+            android:textColor="@drawable/tab_selector_color" />
+
+        <RadioButton
+            android:id="@+id/bt_device"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_selector_device"
+            android:gravity="bottom|center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="16sp"
+            android:text="实时数据"
+            android:textColor="@drawable/tab_selector_color" />
+    </RadioGroup>
+
+</LinearLayout>
