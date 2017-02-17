@@ -31,18 +31,20 @@ public class MyJpushReceiver extends BroadcastReceiver {
         LogUtils.Loge("content","->"+entity.getContent());
         LogUtils.Loge("extra","->"+entity.getExtra());
         if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-            if(entity.getType()>=2&&entity.getType()<=5){
+            if((entity.getType()>=2&&entity.getType()<=5)||entity.getType()==7||entity.getType()==9){
                 //出现报警信息才会弹出通知;
                 showNotification(context, entity);
-            }else{
+                saveNotification(context, GetBundleFromIntent.getBundle(intent));
+                LogUtils.Loge("极光广播", "过载/过压/欠压/短路情况");
+            }else {
                 //改变app主页逆变器，光伏控制器的工作状态
                 Intent broadcast = new Intent();
                 broadcast.putExtra("type",entity.getType());
                 broadcast.setAction("PVMonitor.refresh.DATA_BROADCAST");
                 context.sendBroadcast(broadcast);
-
+                LogUtils.Loge("极光广播", "收到推送消息，工作状态改变");
             }
-            saveNotification(context, GetBundleFromIntent.getBundle(intent));
+
         }
     }
 
@@ -62,7 +64,7 @@ public class MyJpushReceiver extends BroadcastReceiver {
             Notification.Builder builder = new Notification.Builder(context)
                     .setAutoCancel(true)
                     .setContentTitle(entity.getTitle())
-                    .setContentText(entity.getExtra())
+                    .setContentText(entity.getExtra()+",请及时处理")
                     .setSmallIcon(R.mipmap.sun)
                     .setContentIntent(pi)
                     .setWhen(System.currentTimeMillis());
@@ -71,7 +73,7 @@ public class MyJpushReceiver extends BroadcastReceiver {
             notification = new Notification.Builder(context)
                     .setAutoCancel(true)
                     .setContentTitle(entity.getTitle())
-                    .setContentText(entity.getExtra())
+                    .setContentText(entity.getExtra()+",请及时处理")
                     .setSmallIcon(R.mipmap.sun)
                     .setContentIntent(pi)
                     .setWhen(System.currentTimeMillis())

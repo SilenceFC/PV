@@ -36,7 +36,8 @@ public class RefreshAsync extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        if (s.equals("null")) {
+        LogUtils.Loge("AsyncTaskUI线程任务","获取数据内容："+s);
+        if ("null".equals(s)) {
             pd.dismiss();
             Toast.makeText(ContextUtils.getInstance(), "无法连接到服务器，请稍后再试", Toast.LENGTH_LONG).show();
             LogUtils.Loge("有问题", "网络异常");

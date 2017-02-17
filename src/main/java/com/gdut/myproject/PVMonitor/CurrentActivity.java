@@ -155,6 +155,7 @@ public class CurrentActivity extends Activity implements View.OnClickListener{
         }else {
             LogUtils.Loge("wifi打开","： 111");
 //            getCurrentDataFromNet();
+            test();
         }
     }
 

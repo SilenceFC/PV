@@ -71,9 +71,11 @@ public class SetBackGround {
 
     public static int setDeviceStateBackground(SharedPreferences sp,int type){
         int resId = R.mipmap.main2;
+        LogUtils.Loge("设置状态背景", "type:"+type);
         switch (type){
             case 0:
                 int state = sp.getInt("state", API.ERROR_NET);
+                LogUtils.Loge("设置状态背景", "state:"+state);
                 if(state == API.ERROR_NET || state == API.ERROR_SERVER){
                 }else{
                     int mpptstate = sp.getInt("MpptState",0);
@@ -84,6 +86,7 @@ public class SetBackGround {
             break;
             case 1:
                 int state1 = sp.getInt("state", API.ERROR_NET);
+                LogUtils.Loge("设置状态背景", "state1:"+state1);
                 if(state1 == API.ERROR_NET || state1 == API.ERROR_SERVER){
                 }else{
                     int interverstate = sp.getInt("InterverState",0);
@@ -93,6 +96,7 @@ public class SetBackGround {
                 }
                 break;
         }
+
         return resId;
     }
 

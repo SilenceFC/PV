@@ -73,7 +73,7 @@ public class MinaSocketClient {
                 throwable.printStackTrace();
             }
         }));
-        ConnectFuture future = connector.connect(new InetSocketAddress(API.ADDRESS,API.PORT));
+        ConnectFuture future = connector.connect(new InetSocketAddress(API.ADDRESS_WIFI,API.PORT));
         future.awaitUninterruptibly();
         IoSession session;
         try {
