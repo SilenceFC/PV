@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    android:background="#63B8FF"
+    android:background="#1fd1f7"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,7 +25,7 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:text="功率"
-                android:textColor="#00ff00"
+                android:textColor="#ffffff"
                 android:textSize="22sp" />
         </LinearLayout>
 
@@ -34,15 +34,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center">
-        <TextView
-            android:id="@+id/tv_monthElect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:gravity="center"
-            android:textColor="#c0c0c0"
-            android:text="月发电量"
-            android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_monthElect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="月发电量"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,16 +51,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center">
-        <TextView
-            android:id="@+id/tv_yearElect"
-            android:textColor="#c0c0c0"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="年发电量"
-            android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_yearElect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="年发电量"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
         </LinearLayout>
     </LinearLayout>
 

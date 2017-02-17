@@ -11,12 +11,13 @@ import com.gdut.myproject.utils.ContextUtils;
 import com.gdut.myproject.Bean.DetailData;
 import com.gdut.myproject.utils.HttpUtils;
 import com.gdut.myproject.utils.LogUtils;
+import com.gdut.myproject.utils.MinaSocketClient;
 import com.gdut.myproject.utils.SPUtils;
 
 /**
  * Created by Administrator on 2016/6/2.
  */
-public class RefreshAsync extends AsyncTask<String, Void, DetailData> {
+public class RefreshAsync extends AsyncTask<String, Void, String> {
     private SharedPreferences sp;
     private Context mContext;
     private ProgressDialog pd;
@@ -26,21 +27,23 @@ public class RefreshAsync extends AsyncTask<String, Void, DetailData> {
         this.pd = pd;
     }
     @Override
-    protected DetailData doInBackground(String... params) {
-        HttpUtils hu = new HttpUtils(mContext);
-        return hu.getJsonFromHttp(params[0], SPUtils.CITY);
+    protected String doInBackground(String... params) {
+        String content = null;
+        content = MinaSocketClient.getInstance().openMinaSocket(params[0]);
+        LogUtils.Loge("1小时异步任务","获取数据内容："+content);
+        return content;
     }
 
     @Override
-    protected void onPostExecute(DetailData weatherBean) {
-        if (!weatherBean.isExist()) {
+    protected void onPostExecute(String s) {
+        if (s.equals("null")) {
             pd.dismiss();
             Toast.makeText(ContextUtils.getInstance(), "无法连接到服务器，请稍后再试", Toast.LENGTH_LONG).show();
             LogUtils.Loge("有问题", "网络异常");
 
         } else {
-            SPUtils.updatePVSP(sp, weatherBean, System.currentTimeMillis());
             Intent sendintent = new Intent();
+            sendintent.putExtra("type",11);
             sendintent.setAction("PVMonitor.refresh.DATA_BROADCAST");
             mContext.sendBroadcast(sendintent);
             pd.dismiss();

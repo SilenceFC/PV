@@ -12,6 +12,7 @@ import com.gdut.myproject.utils.LogUtils;
 
 /**
  * Created by Administrator on 2016/9/24.
+ * 分析推送过来的报警信息并保存报警信息
  */
 public class AlarmService extends IntentService {
     private DbService db;

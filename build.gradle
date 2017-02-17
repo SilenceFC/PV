@@ -40,8 +40,8 @@ dependencies {
     compile files('libs/jsoup-1.8.3.jar')
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile project(':volly-1.0.11')
-    compile project(':xUtils-2.6.14')
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'org.xutils:xutils:3.3.36'
     compile project(':jpush-android-2.1.7')
     compile files('libs/mina-core-2.0.16.jar')
     compile files('libs/slf4j-api-1.7.21.jar')

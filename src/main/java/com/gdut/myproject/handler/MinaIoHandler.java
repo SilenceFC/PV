@@ -37,7 +37,7 @@ public class MinaIoHandler extends IoHandlerAdapter {
         result = (String) message;
         Log.e("MinaIoHandler", "~~~messageReceived~~~"+result);
 //        EventBus.getDefault().post(new DataEvent(result));
-        if(result.contains("id")){
+        if(result.contains("data")){
             ParseUtil.getInstance().parseData(ContextUtils.getInstance(),result);
         }
         if(mCallBack!=null){

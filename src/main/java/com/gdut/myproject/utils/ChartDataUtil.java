@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/31.
+ * 用于图表的工具，给X,Y轴封装数据
  */
 public class ChartDataUtil {
     private DbService db;

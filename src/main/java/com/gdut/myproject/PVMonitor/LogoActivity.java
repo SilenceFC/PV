@@ -77,19 +77,22 @@ public class LogoActivity extends Activity {
                     enterMainActivity();
                     break;
                 case ERROR_URL:
-                    Toast.makeText(LogoActivity.this, "URL异常，请刷新重试", Toast.LENGTH_SHORT);
+                    Toast.makeText(LogoActivity.this, "URL异常，请刷新重试", Toast.LENGTH_SHORT).show();
                     enterMainActivity();
                     break;
                 case ERROR_JSON:
-                    Toast.makeText(LogoActivity.this, "Json异常，请刷新重试", Toast.LENGTH_SHORT);
+                    Toast.makeText(LogoActivity.this, "Json异常，请刷新重试", Toast.LENGTH_SHORT).show();
                     enterMainActivity();
                     break;
                 case ERROR_IO:
-                    Toast.makeText(LogoActivity.this, "网络异常，请检查网络后重试", Toast.LENGTH_SHORT);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt("state",API.ERROR_NET);
+                    editor.commit();
+                    Toast.makeText(LogoActivity.this, "网络异常，请检查网络后重试", Toast.LENGTH_SHORT).show();
                     enterMainActivity();
                     break;
                 case SHOWDIALOG:
-                    showUpdateDialog();
+//                    showUpdateDialog();
                     break;
                 default:
                     enterMainActivity();
@@ -99,42 +102,42 @@ public class LogoActivity extends Activity {
         }
     };
 
-    private void showUpdateDialog() {
-        LogUtils.Loge("显示dialog", "进入dialog");
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("更新信息")
-                .setMessage(description)
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        dialog.dismiss();
-                        enterMainActivity();
-                    }
-                }).setNegativeButton("下次再说", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                enterMainActivity();
-            }
-        }).setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                    OkUtils.getInstance().xutilsDownloadFile(tv_updateprogress, apkurl, version, new OkUtils.FileCallback() {
-                        @Override
-                        public void onFailure(IOException e) {
-                            Toast.makeText(LogoActivity.this, "下载失败", Toast.LENGTH_SHORT);
-                        }
-
-                        @Override
-                        public void onResponse(File file) {
-                            installAPK(file);
-                        }
-                    });
-                }
-            }
-        }).show();
-    }
+//    private void showUpdateDialog() {
+//        LogUtils.Loge("显示dialog", "进入dialog");
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("更新信息")
+//                .setMessage(description)
+//                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                    @Override
+//                    public void onCancel(DialogInterface dialog) {
+//                        dialog.dismiss();
+//                        enterMainActivity();
+//                    }
+//                }).setNegativeButton("下次再说", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//                enterMainActivity();
+//            }
+//        }).setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+//                    OkUtils.getInstance().xutilsDownloadFile(tv_updateprogress, apkurl, version, new OkUtils.FileCallback() {
+//                        @Override
+//                        public void onFailure(IOException e) {
+//                            Toast.makeText(LogoActivity.this, "下载失败", Toast.LENGTH_SHORT);
+//                        }
+//
+//                        @Override
+//                        public void onResponse(File file) {
+//                            installAPK(file);
+//                        }
+//                    });
+//                }
+//            }
+//        }).show();
+//    }
 
     private void installAPK(File file) {
         Intent intent = new Intent();
@@ -209,6 +212,9 @@ public class LogoActivity extends Activity {
         OkUtils.getInstance().okhttpSunRise(API.CITY_TEST, new OkUtils.JObjectCallback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                Message msg = Message.obtain();
+                msg.what = ERROR_IO;
+                mhandler.sendMessage(msg);
                 EventBus.getDefault().post(new LogoEvent("IO异常，检查网络设置"));
             }
 
@@ -216,6 +222,12 @@ public class LogoActivity extends Activity {
             public void onResponse(Call call, Object o) {
                 SPUtils.updateWeatherSP(sp,(WeatherTotal)o,System.currentTimeMillis());
                 LogUtils.Loge("获取心知天气","成功");
+                Message msg = Message.obtain();
+                msg.what = ENTER_MAIN;
+                mhandler.sendMessage(msg);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putInt("state",API.SUCCESS_NET);
+                editor.commit();
             }
         });
 
@@ -278,7 +290,7 @@ public class LogoActivity extends Activity {
     private String getVersionName() {
         PackageManager pm = getPackageManager();
         try {
-            PackageInfo packInfo = pm.getPackageInfo("com.example.myprogect.PVMonitor", 0);
+            PackageInfo packInfo = pm.getPackageInfo("com.gdut.myproject.PVMonitor", 0);
             return packInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

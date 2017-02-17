@@ -15,8 +15,6 @@ import android.widget.PopupMenu;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.gdut.myproject.PVMonitor.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +24,6 @@ import com.gdut.myproject.Bean.MainEvent;
 import com.gdut.myproject.Fragments.Fragment1;
 import com.gdut.myproject.Fragments.Fragment2;
 import com.gdut.myproject.Fragments.Fragment3;
-import com.gdut.myproject.Fragments.Fragment4;
 import com.gdut.myproject.Fragments.Fragment4_list;
 import de.greenrobot.event.EventBus;
 import com.gdut.myproject.utils.DbService;
@@ -46,7 +43,7 @@ public class FirstActivity extends FragmentActivity {
     Fragment1 fg1;
     Fragment2 fg2;
     Fragment3 fg3;
-    Fragment4 fg4;
+
     Fragment4_list fg4_list;
     DbService db;
 

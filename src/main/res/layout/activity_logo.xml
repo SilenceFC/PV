@@ -11,7 +11,7 @@
     android:id="@+id/app_back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/back_1"
+    android:background="@mipmap/back_road"
     />
 
 <RelativeLayout
@@ -21,11 +21,10 @@
         android:id="@+id/app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_centerInParent="true"
         android:gravity="center_horizontal"
         android:text="分 布 式\n 光 伏 监 测 系 统"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="26sp"
         />
 
@@ -47,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/progress_mid"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
         android:text="版本号：1.0"
         android:textSize="20sp"

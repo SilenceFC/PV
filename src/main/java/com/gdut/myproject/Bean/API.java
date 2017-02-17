@@ -8,8 +8,10 @@ public class API {
     public static final int TYPE_BAR_DAY = 1;
     public static final int TYPE_BAR_MONTH = 2;
     public static final String ADDRESS = "124.16.2.182";
+
     public static final String ADDRESS_WIFI = "192.168.115.182";
     public static final int PORT = 30000;
+
     public static final String CITY_TEST ="广州";
     public static final String CITY_WORK ="博罗";
     public static final String PATH_UPDATE ="http://124.16.2.182:8080/pvupdate.html";
@@ -18,4 +20,12 @@ public class API {
     public static final String PATH_INSTANT = "http://124.16.2.182/MyPVMonitorServlet/servlet/InstantPower";
     public static final String PATH_CURRENT = "http://124.16.2.182:8080/MPPT.html";
     public static final String PATH_SUN = "https://api.heweather.com/x3/weather?city=";
+
+    public static final int ERROR_NET = 3;
+    public static final int ERROR_SERVER = 4;
+    public static final int ERROR_SELF = 5;
+
+    public static final int SUCCESS_NET = 6;
+    public static final int SUCCESS_SERVER = 7;
+    public static final int SUCCESS_SELF = 8;
 }

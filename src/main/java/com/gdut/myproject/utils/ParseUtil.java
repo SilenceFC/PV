@@ -16,7 +16,7 @@ import com.gdut.myproject.Bean.PVBean;
 
 /**
  * 用于将光伏数据解析出来并分别存储在对应的SharedPrefence、SQLite中
- * 涉及到数据库操作，建议另开线程进行处理
+ * 涉及到数据库操作，建议另开线程进行处理。此类在minaIoHandler中被用到
  */
 public class ParseUtil {
     private static Gson mGson;

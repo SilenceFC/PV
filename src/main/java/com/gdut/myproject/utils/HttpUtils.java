@@ -20,6 +20,7 @@ import com.gdut.myproject.Bean.DetailData;
 
 /**
  * Created by Administrator on 2016/5/19.
+ * 已经放弃使用的网络请求封装类
  */
 public class HttpUtils {
     private static final String path = "http://124.16.2.182:8080/MyPVMonitorServlet/servlet/WebServlet?";

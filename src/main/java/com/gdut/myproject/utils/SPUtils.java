@@ -11,6 +11,7 @@ import com.gdut.myproject.Bean.WeatherTotal;
 
 /**
  * Created by Administrator on 2016/5/24.
+ * 用于插入数据到SharedPreferences,判断时间是否超过1小时
  */
 public class SPUtils {
     public static final String CITY="广州";

@@ -49,6 +49,7 @@ public class CurrentActivity extends Activity implements View.OnClickListener{
     SharedPreferences sp;
     Timer timer;
     Gson mGson;
+
     Disposable disposable;
 
     private TextView tv_inI,tv_inU,tv_inP,tv_outI,tv_outU,tv_outP,tv_temp;
@@ -65,7 +66,7 @@ public class CurrentActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_current);
         EventBus.getDefault().register(this);
         initView();
-        test();
+
     }
 
     private void test(){
@@ -148,7 +149,7 @@ public class CurrentActivity extends Activity implements View.OnClickListener{
                     }).setPositiveButton("继续", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//                    getCurrentDataFromNet();
+                    test();
                 }
             }).setCancelable(false).show();
         }else {

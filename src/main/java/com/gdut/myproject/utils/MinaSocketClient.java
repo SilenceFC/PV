@@ -1,5 +1,8 @@
 package com.gdut.myproject.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.gdut.myproject.PVMonitor.CurrentActivity;
 
 import org.apache.mina.core.future.ConnectFuture;
@@ -17,12 +20,15 @@ import com.gdut.myproject.handler.MinaIoHandler;
 
 /**
  * Created by Administrator on 2016/11/14.
+ * 使用了mina框架，基于NIO的socket连接。
  */
 public class MinaSocketClient {
     private static NioSocketConnector connector;
     private String result;
     private int num=0;
+    private SharedPreferences sp;
     private MinaSocketClient(){
+        sp = ContextUtils.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE);
         if(connector == null){
             connector = new NioSocketConnector();
         }
@@ -54,14 +60,20 @@ public class MinaSocketClient {
             @Override
             public void onResponse(Object msg) {
                 result = (String) msg;
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putInt("state",API.SUCCESS_SERVER);
+                editor.commit();
             }
 
             @Override
             public void onError(Throwable throwable) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putInt("state",API.ERROR_SERVER);
+                editor.commit();
                 throwable.printStackTrace();
             }
         }));
-        ConnectFuture future = connector.connect(new InetSocketAddress(API.ADDRESS_WIFI,API.PORT));
+        ConnectFuture future = connector.connect(new InetSocketAddress(API.ADDRESS,API.PORT));
         future.awaitUninterruptibly();
         IoSession session;
         try {
@@ -87,6 +99,9 @@ public class MinaSocketClient {
                 }
             }
         }catch (Exception e){
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt("state",API.ERROR_SERVER);
+            editor.commit();
             LogUtils.Loge("minaSocketClient","未获取到session");
             EventBus.getDefault().post(new MainEvent("服务器连接异常，请检查网络设置"));
             e.printStackTrace();

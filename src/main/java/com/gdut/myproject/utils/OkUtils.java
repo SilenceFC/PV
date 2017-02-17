@@ -9,11 +9,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;
+
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -44,6 +40,8 @@ import okhttp3.Response;
 /**
  * Created by Administrator on 2016/9/12.
  * 此类封装了okhttp的一些方法，传入相应的参数即可
+ * 目前只用到okhttpSunRise方法，用于请求天气数据
+ * 其余方法由于内外网限制，外网无法访问服务器，遂弃用。
  */
 public class OkUtils {
     private static OkUtils instance = null;
@@ -248,37 +246,37 @@ public class OkUtils {
 
         void onResponse(Call call, List<String> list);
     }
-
-    /**
-     * 用于下载文件，目前有BUG
-     *
-     * @param tv
-     * @param url
-     * @param version
-     * @param fileCallback
-     */
-    public void xutilsDownloadFile(final TextView tv, String url, final String version, final FileCallback fileCallback) {
-        HttpUtils http = new HttpUtils();
-        http.download(HttpRequest.HttpMethod.GET, url, Environment.getExternalStorageDirectory() + "PVMonitor" + version + ".apk",
-                null, new RequestCallBack<File>() {
-                    @Override
-                    public void onLoading(long total, long current, boolean isUploading) {
-                        tv.setVisibility(View.VISIBLE);
-                        tv.setText("下载进度：" + (current / total) * 100 + "%");
-                    }
-
-                    @Override
-                    public void onSuccess(ResponseInfo<File> responseInfo) {
-                        tv.setVisibility(View.GONE);
-                        fileCallback.onResponse(responseInfo.result);
-                    }
-
-                    @Override
-                    public void onFailure(HttpException e, String s) {
-
-                    }
-                });
-    }
+//
+//    /**
+//     * 用于下载文件，目前有BUG
+//     *
+//     * @param tv
+//     * @param url
+//     * @param version
+//     * @param fileCallback
+//     */
+//    public void xutilsDownloadFile(final TextView tv, String url, final String version, final FileCallback fileCallback) {
+//        HttpUtils http = new HttpUtils();
+//        http.download(HttpRequest.HttpMethod.GET, url, Environment.getExternalStorageDirectory() + "PVMonitor" + version + ".apk",
+//                null, new RequestCallBack<File>() {
+//                    @Override
+//                    public void onLoading(long total, long current, boolean isUploading) {
+//                        tv.setVisibility(View.VISIBLE);
+//                        tv.setText("下载进度：" + (current / total) * 100 + "%");
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(ResponseInfo<File> responseInfo) {
+//                        tv.setVisibility(View.GONE);
+//                        fileCallback.onResponse(responseInfo.result);
+//                    }
+//
+//                    @Override
+//                    public void onFailure(HttpException e, String s) {
+//
+//                    }
+//                });
+//    }
 
     public interface FileCallback {
         void onFailure(IOException e);

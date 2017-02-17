@@ -5,11 +5,11 @@ package com.gdut.myproject.Bean;
  */
 public class NotifyEntity {
     public static int code = 0;
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -37,7 +37,7 @@ public class NotifyEntity {
         this.extra = extra;
     }
 
-    private String type ;
+    private int type ;
     private String title ;
     private  String content ;
     private String extra;

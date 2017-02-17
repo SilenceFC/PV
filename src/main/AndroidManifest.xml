@@ -49,7 +49,6 @@
         <activity android:name="com.gdut.myproject.PVMonitor.CurrentActivity"/>
         <activity android:name="com.gdut.myproject.PVMonitor.HistoryActivity"/>
 
-        <service android:name="com.gdut.myproject.service.UpdateService"/>
         <service android:name="com.gdut.myproject.service.AlarmService"/>
         <!-- Required SDK核心功能-->
         <activity
